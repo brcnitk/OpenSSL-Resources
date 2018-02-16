@@ -1,0 +1,8 @@
+# To encrypt using Base64
+openssl enc -base64 -in number.txt
+
+# To encrypt using aes
+openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin
+
+# To decrypt using aes (encryption password "hello" entered at the command prompt)
+openssl enc -d -aes-256-cbc -in encrypted.bin -pass pass:hello
