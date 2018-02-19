@@ -1,3 +1,16 @@
+# Private key
+openssl genrsa -des3 -out domain.key 2048
+
+# Verify private key
+openssl rsa -check -in domain.key
+
+# Encrypt a private key
+openssl rsa -des3 -in unencrypted.key -out encrypted.key
+
+# Decrypt a private key
+openssl rsa -in encrypted.key -out decrypted.key
+
+
 # Generate 2048-bit private key (domain.key) and a CSR (domain.csr). (-nodes: domain.key should not be encrypted)
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr
 
@@ -24,6 +37,17 @@ openssl x509 -text -noout -in domain.crt
 
 # Verify certificate was signed by a CA
 openssl verify -verbose -CAFile ca.crt domain.crt
+
+# Verify a private key (domain.key) matches a certificate (domain.crt) and CSR (domain.csr)
+openssl rsa -noout -modulus -in domain.key | openssl md5
+openssl x509 -noout -modulus -in domain.crt | openssl md5
+openssl req -noout -modulus -in domain.csr | openssl md5
+
+# Convert a certificate format PEM to DER
+openssl x509 -in domain.crt -outform der -out domain.der
+
+# Convert a certificate format DER to PEM
+openssl x509 -inform der -in domain.der -out domain.crt
 
 # Non-interactive way to generate Certificate Signing Request (CSR)
 -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com"
