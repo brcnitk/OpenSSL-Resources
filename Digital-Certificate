@@ -67,6 +67,28 @@ openssl x509 -in domain.crt -outform der -out domain.der
 # Convert a certificate format DER to PEM
 openssl x509 -inform der -in domain.der -out domain.crt
 
+G. Generating Certificate Authority (CA) certificate
+
+# Generating CSR
+openssl req -passout pass:abcdefg -subj "/C=US/ST=IL/L=Chicago/O=IBM Corporation/OU=IBM Software Group/CN=Rational Performance Tester CA/emailAddress=rpt@abc.ibm.com" -new > waipio.ca.cert.csr
+
+# Generating Private key file
+openssl rsa -passin pass:abcdefg -in privkey.pem -out waipio.ca.key
+
+# Generating certificate
+openssl x509 -in waipio.ca.cert.csr -out waipio.ca.cert -req -signkey waipio.ca.key -days 365
+
+H. Issuing certificate to users
+
+# Generate CSR
+openssl req -passout pass:abc -subj "/C=US/ST=IL/L=Chicago/O=IBM Corporation/OU=IBM Software Group/CN=John Smith/emailAddress=smith@abc.ibm.com" -new > johnsmith.cert.csr
+
+# Generate private key
+openssl rsa -passin pass:abc -in privkey.pem -out johnsmith.key
+
+# Generate certificate
+openssl x509 -req -in johnsmith.cert.csr -out johnsmith.cert -signkey johnsmith.key -CA waipio.ca.cert -CAkey waipio.ca.key -CAcreateserial -days 365
+
 References:
 
 A. Website:
