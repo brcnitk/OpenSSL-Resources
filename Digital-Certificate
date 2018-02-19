@@ -1,2 +1,11 @@
-# Generate Private key and CSR
+# Generate 2048-bit private key (domain.key) and a CSR (domain.csr). (-nodes: domain.key should not be encrypted)
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr
+
+# Generating CSR (domain.csr) based on existing private key (domain.key). (-key: existing private key, -new: CSR to be generated)
+openssl req -key domain.key -new -out domain.csr
+
+# Generate a CSR from existing private key and certificate. (renewing an existing certificate but you or your CA do not have the original CSR for some reason.  It basically saves you the trouble of re-entering the CSR information, as it extracts that information from the existing certificate.)
+openssl x509 -in domain.crt -signkey domain.key -x509toreq -out domain.csr
+
+# Non-interactive way to generate Certificate Signing Request (CSR)
+-subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com"
