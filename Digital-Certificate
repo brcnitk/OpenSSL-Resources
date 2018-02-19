@@ -1,7 +1,10 @@
+
+A. Generating Private Key
+
 # Private key
 openssl genrsa -des3 -out domain.key 2048
 
-# Verify private key
+# Verify private key (Display the private key)
 openssl rsa -check -in domain.key
 
 # Encrypt a private key
@@ -10,6 +13,7 @@ openssl rsa -des3 -in unencrypted.key -out encrypted.key
 # Decrypt a private key
 openssl rsa -in encrypted.key -out decrypted.key
 
+B. Generating Certificate Signing Request (CSR)
 
 # Generate 2048-bit private key (domain.key) and a CSR (domain.csr). (-nodes: domain.key should not be encrypted)
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr
@@ -20,6 +24,8 @@ openssl req -key domain.key -new -out domain.csr
 # Generate a CSR from existing private key and certificate. (renewing an existing certificate but you or your CA do not have the original CSR for some reason.  It basically saves you the trouble of re-entering the CSR information, as it extracts that information from the existing certificate.)
 openssl x509 -in domain.crt -signkey domain.key -x509toreq -out domain.csr
 
+C. Generating Self-Signed Certificate
+
 # Generating self signed certificate. (-x509 option tells req to create a self-signed cerificate. The -days 365 option specifies that the certificate will be valid for 365 days)
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
 
@@ -28,6 +34,8 @@ openssl req -key domain.key -new -x509 -days 365 -out domain.crt
 
 # Generating self signed certificate from an existing private key (domain.key) and CSR (domain.csr) (Advantage: No need of providing CSR information)
 openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
+
+D. View and Verify Certificates
 
 # View CSR (domain.csr) entries
 openssl req -text -noout -verify -in domain.csr
@@ -42,6 +50,8 @@ openssl verify -verbose -CAFile ca.crt domain.crt
 openssl rsa -noout -modulus -in domain.key | openssl md5
 openssl x509 -noout -modulus -in domain.crt | openssl md5
 openssl req -noout -modulus -in domain.csr | openssl md5
+
+E. Certificate of Different format
 
 # Convert a certificate format PEM to DER
 openssl x509 -in domain.crt -outform der -out domain.der
