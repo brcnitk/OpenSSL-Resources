@@ -2,3 +2,4 @@ A. Websites:
 
 1. An Introduction to the OpenSSL command line tool (Philippe Camacho): https://users.dcc.uchile.cl/~pcamacho/tutorial/crypto/openssl/openssl_intro.html
 2. How to Configure HTTPS: https://www.digitalocean.com/community/questions/openssl-implementation-what-am-i-missing
+3. Digital Certificate: https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
