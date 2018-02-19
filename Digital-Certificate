@@ -55,6 +55,6 @@ openssl x509 -inform der -in domain.der -out domain.crt
 
 References:
 
-Website:
+A. Website:
 
 1. Digitalocean.com: https://goo.gl/Qokp8m 
