@@ -27,3 +27,8 @@ openssl verify -verbose -CAFile ca.crt domain.crt
 
 # Non-interactive way to generate Certificate Signing Request (CSR)
 -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com"
+
+
+References:
+
+1. https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
