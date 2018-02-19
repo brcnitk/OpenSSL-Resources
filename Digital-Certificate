@@ -1,110 +1,90 @@
 
-A. Generating Private Key
+Generating Certificate Signing Request (CSR)
+--------------------------------------------
 
-# Private key
+Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
+
+# Private key with password
+openssl genrsa -des3 -out server.key 2048
+
+# Private key without password
 openssl genrsa -out domain.key 2048
 
-# Password protected private key
-openssl genrsa -des3 -out domain.key 2048
+# Encrypt private key which is without password
+openssl rsa -des3 -in domain.key -out encrypted.key
+
+# Decrypting passord protected private key
+openssl rsa -in server.key -out server.key.insecure
+mv server.key server.key.secure
+mv server.key.insecure server.key
 
 # Verify private key (Display the private key)
 openssl rsa -check -in domain.key
 
-# Encrypt a private key
-openssl rsa -des3 -in domain.key -out encrypted.key
-
-# Decrypt a private key
-openssl rsa -in encrypted.key -out decrypted.key
-
-# To view private key
+# View private key
 openssl rsa -in domain.key -noout -text
 
-# Extracting public key
+# Extracting public key (optional)
 openssl rsa -in example.org.key -pubout -out example.org.pubkey
 
-# To view public key
+# View public key (optional)
 openssl rsa -in example.org.pubkey -pubin -noout -text
 
-B. Generating Certificate Signing Request (CSR)
+Step 1.2: Certificate Signing Request (CSR)
 
-# Generate 2048-bit private key (domain.key) and a CSR (domain.csr). (-nodes: domain.key should not be encrypted)
+# Create CSR (with existing private key)
+openssl req -new -key server.key -out server.csr
+
+# Create CSR (without existing private key)
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -out domain.csr
 
-# Generating CSR (domain.csr) based on existing private key (domain.key). (-key: existing private key, -new: CSR to be generated)
-openssl req -key domain.key -new -out domain.csr
-
-# Generate a CSR from existing private key and certificate. (renewing an existing certificate but you or your CA do not have the original CSR for some reason.  It basically saves you the trouble of re-entering the CSR information, as it extracts that information from the existing certificate.)
+# Create CSR (with existing private key and certificate). For renewing an existing certificate but you or your CA do not have the original CSR.
 openssl x509 -in domain.crt -signkey domain.key -x509toreq -out domain.csr
 
 # Non-interactive way to generate CSR
 -subj "/C=US/ST=New York/L=Brooklyn/O=Example Brooklyn Company/CN=examplebrooklyn.com"
 
-C. Generating Certificate
-
-# Generating Certificate (domain.crt)
-openssl x509 -in domain.csr -out domain.cert -req -signkey domain.key -days 365
-
-D. Generating Self-Signed Certificate
-
-# Generating self signed certificate. (-x509 option tells req to create a self-signed cerificate. The -days 365 option specifies that the certificate will be valid for 365 days)
-openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
-
-# Generating self signed certificate (domain.crt) from an existing private key (domain.key)
-openssl req -key domain.key -new -x509 -days 365 -out domain.crt
-
-# Generating self signed certificate from an existing private key (domain.key) and CSR (domain.csr) (Advantage: No need of providing CSR information)
-openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
-
-E. View and Verify Certificates
-
-# To view CSR
+# View CSR
 openssl req -text -noout -in domain.csr
 
-# To View and verify CSR (domain.csr) entries
+# View and verify CSR (domain.csr) entries
 openssl req -text -noout -verify -in domain.csr
 
-# View certificate (domain.crt) entries
-openssl x509 -text -noout -in domain.crt
+*********************************************************************************************************************************
 
-# Verify certificate was signed by a CA
-openssl verify -verbose -CAFile ca.crt domain.crt
+Creating Self-Signed Certificate
+--------------------------------
+
+# Create self-signed certificate (with private key and csr)
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+# Create self-signed certificate. (without private key and CSR)
+openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+
+# Create self-signed certificate (with private key and without CSR)
+openssl req -key domain.key -new -x509 -days 365 -out domain.crt
+
+# View certificate
+openssl x509 -text -noout -in domain.crt
 
 # Verify a private key (domain.key) matches a certificate (domain.crt) and CSR (domain.csr)
 openssl rsa -noout -modulus -in domain.key | openssl md5
 openssl x509 -noout -modulus -in domain.crt | openssl md5
 openssl req -noout -modulus -in domain.csr | openssl md5
 
-F. Certificate of Different format
+*********************************************************************************************************************************
 
-# Convert a certificate format PEM to DER
-openssl x509 -in domain.crt -outform der -out domain.der
+Installing the Certificate
+--------------------------
 
-# Convert a certificate format DER to PEM
-openssl x509 -inform der -in domain.der -out domain.crt
+# /etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key
+sudo cp server.crt /etc/ssl/certs
+sudo cp server.key /etc/ssl/private
 
-G. Generating Certificate Authority (CA) certificate
+*********************************************************************************************************************************
 
-# Generating CSR
-openssl req -passout pass:abcdefg -subj "/C=US/ST=IL/L=Chicago/O=IBM Corporation/OU=IBM Software Group/CN=Rational Performance Tester CA/emailAddress=rpt@abc.ibm.com" -new > waipio.ca.cert.csr
-
-# Generating Private key file
-openssl rsa -passin pass:abcdefg -in privkey.pem -out waipio.ca.key
-
-# Generating certificate
-openssl x509 -in waipio.ca.cert.csr -out waipio.ca.cert -req -signkey waipio.ca.key -days 365
-
-H. Issuing certificate to users
-
-# Generate CSR
-openssl req -passout pass:abc -subj "/C=US/ST=IL/L=Chicago/O=IBM Corporation/OU=IBM Software Group/CN=John Smith/emailAddress=smith@abc.ibm.com" -new > johnsmith.cert.csr
-
-# Generate private key
-openssl rsa -passin pass:abc -in privkey.pem -out johnsmith.key
-
-# Generate certificate
-openssl x509 -req -in johnsmith.cert.csr -out johnsmith.cert -signkey johnsmith.key -CA waipio.ca.cert -CAkey waipio.ca.key -CAcreateserial -days 365
-
-I. Hosting Certificate Authority (CA)
+Certificate Authority (CA)
+--------------------------
 
 # First, create the directories to hold the CA certificate and related files: 
 sudo mkdir /etc/ssl/CA
@@ -128,32 +108,35 @@ openssl req -new -x509 -extensions v3_ca -keyout cakey.pem -out cacert.pem -days
 sudo mv cakey.pem /etc/ssl/private/
 sudo mv cacert.pem /etc/ssl/certs/
 
-# You are now ready to start signing certificates. The first item needed is a Certificate Signing Request (CSR), see Generating a Certificate Signing Request (CSR) for details. Once you have a CSR, enter the following to generate a certificate signed by the CA: 
+*********************************************************************************************************************************
+
+Creating Certificate signed by CA
+---------------------------------
+
+# Certificate signed by CA (server.csr - CSR of a user) 
 sudo openssl ca -in server.csr -config /etc/ssl/openssl.cnf
 
-J. Generating Certificate Signing Request (CSR)
+# Certificate signed by CA
+openssl x509 -req -in jserver.csr -out server.cert -signkey server.key -CA ca.cert -CAkey ca.key -CAcreateserial -days 365
 
-# To generate the keys for the Certificate Signing Request (CSR) run the following command from a terminal prompt
-openssl genrsa -des3 -out server.key 2048
+# View certificate
+openssl x509 -text -noout -in domain.cert
 
-# Now create the insecure key, the one without a passphrase, and shuffle the key names:
-openssl rsa -in server.key -out server.key.insecure
-mv server.key server.key.secure
-mv server.key.insecure server.key
+# Verify certificate was signed by a CA
+openssl verify -verbose -CAFile ca.cert server.cert
 
-# To create the CSR, run the following command at a terminal prompt: 
-openssl req -new -key server.key -out server.csr
+*********************************************************************************************************************************
 
-K. Creating Self-Signed Certificate
+Certificate of Different format
+-------------------------------
 
-# To create the self-signed certificate, run the following command at a terminal prompt: 
-openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+# Convert a certificate format PEM to DER
+openssl x509 -in domain.cert -outform der -out domain.der
 
-L. Installing the Certificate
+# Convert a certificate format DER to PEM
+openssl x509 -inform der -in domain.der -out domain.cert
 
-# You can install the key file server.key and certificate file server.crt, or the certificate file issued by your CA, by running following commands at a terminal prompt:
-sudo cp server.crt /etc/ssl/certs
-sudo cp server.key /etc/ssl/private
+*********************************************************************************************************************************
 
 References:
 
