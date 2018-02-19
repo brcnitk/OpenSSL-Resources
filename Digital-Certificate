@@ -31,4 +31,6 @@ openssl verify -verbose -CAFile ca.crt domain.crt
 
 References:
 
-1. https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs
+Website:
+
+1. Digitalocean.com: https://goo.gl/Qokp8m 
