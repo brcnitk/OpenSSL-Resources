@@ -2,16 +2,28 @@
 A. Generating Private Key
 
 # Private key
+openssl genrsa -out domain.key 2048
+
+# Password protected private key
 openssl genrsa -des3 -out domain.key 2048
 
 # Verify private key (Display the private key)
 openssl rsa -check -in domain.key
 
 # Encrypt a private key
-openssl rsa -des3 -in unencrypted.key -out encrypted.key
+openssl rsa -des3 -in domain.key -out encrypted.key
 
 # Decrypt a private key
 openssl rsa -in encrypted.key -out decrypted.key
+
+# To view private key
+openssl rsa -in domain.key -noout -text
+
+# Extracting public key
+openssl rsa -in example.org.key -pubout -out example.org.pubkey
+
+# To view public key
+openssl rsa -in example.org.pubkey -pubin -noout -text
 
 B. Generating Certificate Signing Request (CSR)
 
@@ -45,7 +57,10 @@ openssl x509 -signkey domain.key -in domain.csr -req -days 365 -out domain.crt
 
 E. View and Verify Certificates
 
-# View CSR (domain.csr) entries
+# To view CSR
+openssl req -text -noout -in domain.csr
+
+# To View and verify CSR (domain.csr) entries
 openssl req -text -noout -verify -in domain.csr
 
 # View certificate (domain.crt) entries
@@ -96,3 +111,4 @@ A. Website:
 1. Digitalocean.com: https://goo.gl/Qokp8m 
 2. https://blog.didierstevens.com/2008/12/30/howto-make-your-own-cert-with-openssl/
 3. https://gist.github.com/Soarez/9688998
+4. Ubuntu Website: https://help.ubuntu.com/lts/serverguide/certificates-and-security.html
