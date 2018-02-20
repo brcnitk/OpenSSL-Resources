@@ -11,3 +11,7 @@ projects. It’s successful because it’s so widely used; it’s important beca
 parts of the Internet infrastructure relies on it. The project consists of a high-performance
 implementation of key cryptographic algorithms, a complete SSL/TLS and PKI stack, and a
 command-line toolkit.
+
+History:
+--------
+The code initially began its life in 1995 under the name SSLeay, 1 when it was developed by Eric A. Young and Tim J. Hudson. The OpenSSL project was born in the last days of 1998, when Eric and Tim stopped their work on SSLeay to work on a commercial SSL/TLS toolkit called BSAFE SSL-C at RSA Australia.
