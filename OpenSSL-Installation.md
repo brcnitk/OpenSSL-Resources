@@ -10,9 +10,11 @@
 
 ``4. sudo ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl``
 
-``5. sudo make``
+``5. sudo make depend``
 
-``6. sudo make install``
+``6. sudo make``
+
+``7. sudo make install``
 
 ### Procedure 2:
 
