@@ -116,15 +116,12 @@ Step 1.2: Certificate Signing Request (CSR)
 
 **The third file is a CA configuration file. Though not strictly necessary, it is very convenient when issuing multiple certificates. Edit /etc/ssl/openssl.cnf, and in the [ CA_default ] change:**
 
-* dir             = /etc/ssl              `#` Where everything is kept
+- dir             = /etc/ssl              # Where everything is kept
+- database        = $dir/CA/index.txt     # database index file.
+- certificate     = $dir/certs/ca.cert    # The CA certificate
+- serial          = $dir/CA/serial        # The current serial number
+- private_key     = $dir/private/ca.key   # The private key
 
-* database        = $dir/CA/index.txt     `#` database index file.
-
-* certificate     = $dir/certs/ca.cert    `#` The CA certificate
-
-* serial          = $dir/CA/serial        `#` The current serial number
-
-* private_key     = $dir/private/ca.key   `#` The private key
 
 **Next, create the self-signed root certificate:**
 
