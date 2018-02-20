@@ -2,7 +2,7 @@
 
 **Commands to generate private key**
 ```
-openssl genrsa``
+openssl genrsa
 openssl rsa
 openssl rsautl
 ```
