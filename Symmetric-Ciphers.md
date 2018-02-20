@@ -1,23 +1,30 @@
 ## Symmetric Ciphers (Encryption and Decryption)
 
-### Encryption
+### Base64
 
-**To encrypt using Base64**
+**Encryption**
 
 ``openssl enc -base64 -in number.txt``
 
-**To encrypt using aes (interactive)**
+### Data Encryption Standard (DES)
+
+
+
+### Advanced Encryption Standard (AES)
+
+**Encryption** (Interactive)
 
 ``openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin``
 
-**To encrypt using aes (non-interactive)**
+**Encryption** (non-interactive)
 
 ``openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin -pass pass:hello``
 
-**To decrypt using aes (interactive)**
+**Decryption** (interactive)
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt``
 
-**To decrypt using aes (encryption password "hello" entered at the command prompt)**
+**Decryption** (non-interactive)
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt -pass pass:hello``
+
