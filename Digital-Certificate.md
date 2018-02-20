@@ -1,12 +1,3 @@
-Setup:
-
-                                server.csr, server.key
-Certificate Authority (CA) <------------------------------  Server (User)
-                           ------------------------------>
-                                     server.cert
-
-
-
 ### Generating Certificate Signing Request (CSR)
 --------------------------------------------
 
