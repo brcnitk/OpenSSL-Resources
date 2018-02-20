@@ -18,10 +18,11 @@ Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
 
 **Decrypting passord protected private key**
 ```
-openssl rsa -in server.key -out server.key.insecure``
-mv server.key server.key.secure``
-mv server.key.insecure server.key``
+openssl rsa -in server.key -out server.key.insecure
+mv server.key server.key.secure
+mv server.key.insecure server.key
 ```
+
 **Verify private key (Display the private key)**
 
 ``openssl rsa -check -in server.key``
@@ -84,26 +85,26 @@ Step 1.2: Certificate Signing Request (CSR)
 
 **Verify a private key (domain.key) matches a certificate (domain.crt) and CSR (domain.csr)**
 ```
-openssl rsa -noout -modulus -in server.key | openssl md5``
-openssl x509 -noout -modulus -in server.cert | openssl md5``
-openssl req -noout -modulus -in server.csr | openssl md5``
+openssl rsa -noout -modulus -in server.key | openssl md5
+openssl x509 -noout -modulus -in server.cert | openssl md5
+openssl req -noout -modulus -in server.csr | openssl md5
 ```
 
 ### Installing the Certificate (User)
 
 **/etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key**
 ```
-sudo cp server.crt /etc/ssl/certs``
-sudo cp server.key /etc/ssl/private``
+sudo cp server.crt /etc/ssl/certs
+sudo cp server.key /etc/ssl/private
 ```
 
 ### Certificate Authority (CA)
 
 **First, create the directories to hold the CA certificate and related files**
-
-``sudo mkdir /etc/ssl/CA``
-
-``sudo mkdir /etc/ssl/newcerts``
+```
+sudo mkdir /etc/ssl/CA
+sudo mkdir /etc/ssl/newcerts
+```
 
 **The CA needs a few additional files to operate, one to keep track of the last serial number used by the CA, each certificate must have a unique serial number, and another file to record which certificates have been issued**
 
