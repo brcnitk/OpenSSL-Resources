@@ -57,11 +57,19 @@ openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096     (Non-int
 
 **View private key with all parameters** 
 
-``openssl rsa -text -in private.pem``
+```
+Method 1:
+openssl rsa -text -in private.pem
+```
 
-``openssl pkey -text -in private.pem``
+```
+Method 2: openssl pkey -text -in private.pem
+```
 
-``openssl rsa -text -in private.pem -noout`` (without private key)
+```
+Method 3: 
+openssl rsa -text -in private.pem -noout                                    (without private key)
+```
 
 **View only private key**
 
@@ -69,13 +77,25 @@ openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096     (Non-int
 
 **Public key (n, e) from private key**
 
-``openssl rsa -in private.pem -pubout -out public.pem``
+```
+Method 1:
+openssl rsa -in private.pem -pubout -out public.pem
+```
 
-``openssl rsa -in private.pem -pubout -out public.pem -outform PEM``
+```
+Method 2:
+openssl rsa -in private.pem -pubout -out public.pem -outform PEM
+```
 
-``openssl rsa -in private.pem -pubout > public.pem``
+```
+Methdo 3:
+openssl rsa -in private.pem -pubout > public.pem
+```
 
-``openssl pkey -in private.pem -out public.pem -pubout``
+```
+Method 4:
+openssl pkey -in private.pem -out public.pem -pubout
+```
 
 **Public key form encrypted private key**
 
@@ -83,9 +103,15 @@ openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096     (Non-int
 
 **View public key (n, e) with all parameters**
 
-``openssl rsa -text -in public.pem -pubin``
+```
+Method 1:
+openssl rsa -text -in public.pem -pubin
+```
 
-``openssl pkey -text -in public.pem -pubin``
+```
+Methdo 2:
+openssl pkey -text -in public.pem -pubin
+```
 
 **View only public key**
 
@@ -102,14 +128,29 @@ B: PT = D(PRb, CT), D - Decryption
 
 **Encryption** (uses public key of receiver only) 
 
-``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin`` (with public key of receiver)
+```
+Methdo 1:
+openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin        (with public key of receiver)
+```
 
-``openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt -out cipher.bin`` (with public key of receiver) -
+```
+Methdo 2:
+openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt -out cipher.bin     (with public key of receiver) 
+```
 
-``openssl rsautl -encrypt -inkey private.pem -in input.txt -out cipehr.bin`` (with public key of private key of receiver)
+```
+Methdo 3:
+openssl rsautl -encrypt -inkey private.pem -in input.txt -out cipehr.bin              (with public key of private key of receiver)
+```
 
 **Decryption** (uses private key of receiver only)
 
-``openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt``
+```
+Method 1:
+openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt
+```
 
-``openssl pkeyutl -decrypt -inkey private.pem -in cipher.bin -out received-ID.txt``
+``
+Methdo 2:
+openssl pkeyutl -decrypt -inkey private.pem -in cipher.bin -out received-ID.txt
+```
