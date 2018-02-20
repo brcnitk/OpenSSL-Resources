@@ -12,11 +12,15 @@
 
 ``openssl gendsa -des3 -out privkey.pem dsaparam.pem``
 
+**Combining generating DSA parameter and private key**
+
+``openssl dsaparam -genkey 2048 | openssl dsa -out dsa.key -aes128``
+
 **To remove a pass phrase**
 
 ``openssl dsa -in key.pem -out keyout.pem``
 
-** To diplay private key**
+**To diplay private key**
 
 ``openssl dsa -in privkey.pem -text -noout``
 
