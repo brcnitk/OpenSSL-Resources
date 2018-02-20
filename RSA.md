@@ -80,22 +80,24 @@ openssl rsautl
 
 ``cat public.pem``
 
-> A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Public key, E - Encryption
+```
+Encryption and Decryption:
 
-> B: PT = D(PRb, CT), D - Decryption 
+A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Public key, E - Encryption
 
-**Encryption in RSA (uses public key of receiver only) ("-pubin" if public.pem contains only public key)**
+B: PT = D(PRb, CT), D - Decryption 
+```
 
-``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin``
+**Encryption** (uses public key of receiver only) 
 
-``openssl pkeyutl -encrypt -in message.txt -pubin -inkey public.pem -out cipher.bin``
+``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin`` (-pubin - if public.pem contains only public key)
 
-**Encryption in RSA (uses public key of receiver only) (no "-pubin", since private key file private.pem contains public key)**
+``openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt -out cipher.bin`` (-pubin - if public.pem contains only public key)
 
-``openssl rsautl -encrypt -inkey private.pem -in input.txt -out <output_file>``
+``openssl rsautl -encrypt -inkey private.pem -in input.txt -out cipehr.bin``
 
-**Decryption in RSA (uses private key of receiver only)**
+**Decryption** (uses private key of receiver only)
 
 ``openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt``
 
-``openssl pkeyutl -decrypt -in cipher.bin -inkey private.pem -out received-ID.txt``
+``openssl pkeyutl -decrypt -inkey private.pem -in cipher.bin -out received-ID.txt``
