@@ -50,3 +50,6 @@ To test -ssl2 , -ssl3 , -tls1 , -tls1_1 , or -tls1_2 protocol support,
 
 ``openssl s_client -connect www.feistyduck.com:443 -cipher RC4-SHA``
 
+## References:
+
+1. "OpenSSL Coockbook", by Ivan Ristić
