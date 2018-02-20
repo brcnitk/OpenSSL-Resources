@@ -1,12 +1,5 @@
 ##  Rivest–Shamir–Adleman (RSA)
 
-**Commands to generate private key**
-```
-openssl genrsa
-openssl rsa
-openssl rsautl
-```
-
 **Private key (n, d) without password protection**
 
 ``openssl genrsa -out private.pem 4096``
