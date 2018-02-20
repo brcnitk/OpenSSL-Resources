@@ -8,7 +8,7 @@ Certificate Authority (CA) <------------------------------  Server (User)
 
 
 
-Generating Certificate Signing Request (CSR)
+### Generating Certificate Signing Request (CSR)
 --------------------------------------------
 
 Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
