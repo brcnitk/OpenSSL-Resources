@@ -1,4 +1,4 @@
-##  ------------------- RSA -------------------
+##  Rivest–Shamir–Adleman (RSA)
 
 **Commands to generate private key**
 ```
@@ -56,30 +56,44 @@ openssl rsautl
 
 ``cat private.pem``
 
-# To generate public key (n, e) from private key in RSA
-1. openssl rsa -in private.pem -pubout -out public.pem
-2. openssl rsa -in private.pem -pubout -out public.pem -outform PEM
-3. openssl rsa -in private.pem -pubout > public.pem
-4. openssl pkey -in private.pem -out public.pem -pubout
+**To generate public key (n, e) from private key**
 
-# To seperate public key form encrypted private key in RSA
-openssl rsa -in private.pem -passin pass:<phrase> -pubout -out public.pem
+``openssl rsa -in private.pem -pubout -out public.pem``
 
-# To display (n, e) of a public key
-1. openssl rsa -text -in public.pem -pubin 
-2. openssl pkey -in public.pem -pubin -text
+``openssl rsa -in private.pem -pubout -out public.pem -outform PEM``
 
-# To check private and public key files
-1. less public.pem
-2. less private.pem
+``openssl rsa -in private.pem -pubout > public.pem``
 
-# Encryption in RSA (uses public key of receiver only) ("-pubin" if public.pem contains only public key)
-1. openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin
-2. openssl pkeyutl -encrypt -in message.txt -pubin -inkey public.pem -out cipher.bin
+``openssl pkey -in private.pem -out public.pem -pubout``
 
-# Encryption in RSA (uses public key of receiver only) (no "-pubin", since private key file private.pem contains public key)
-openssl rsautl -encrypt -inkey private.pem -in input.txt -out <output_file> 
+**To seperate public key form encrypted private key in RSA**
 
-# Decryption in RSA (uses private key of receiver only)
-1. openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt
-2. openssl pkeyutl -decrypt -in cipher.bin -inkey private.pem -out received-ID.txt
+``openssl rsa -in private.pem -passin pass:<phrase> -pubout -out public.pem``
+
+**To display (n, e) of a public key**
+
+``openssl rsa -text -in public.pem -pubin``
+
+``openssl pkey -in public.pem -pubin -text``
+
+**To check private and public key files**
+
+``less public.pem``
+
+``less private.pem``
+
+**Encryption in RSA (uses public key of receiver only) ("-pubin" if public.pem contains only public key)**
+
+``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin``
+
+``openssl pkeyutl -encrypt -in message.txt -pubin -inkey public.pem -out cipher.bin``
+
+**Encryption in RSA (uses public key of receiver only) (no "-pubin", since private key file private.pem contains public key)**
+
+``openssl rsautl -encrypt -inkey private.pem -in input.txt -out <output_file>``
+
+**Decryption in RSA (uses private key of receiver only)**
+
+``openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt``
+
+``openssl pkeyutl -decrypt -in cipher.bin -inkey private.pem -out received-ID.txt``
