@@ -1,9 +1,11 @@
 # OpenSSL-Resources
 
+[Contribution guidelines for this project](OpenSSL-Basics)
+
 OpenSSL is an open source project that consists of a cryptographic library and an SSL/TLS
 toolkit. From the project’s web site:
 
-"The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan,
+>"The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan,
 and develop the OpenSSL toolkit and its related documentation"
 
 For all its warts, OpenSSL is one of the most successful and most important open source
