@@ -14,7 +14,7 @@
 
 **Combining generating DSA parameter and private key**
 
-``openssl dsaparam -genkey 2048 | openssl dsa -out dsa.key -aes128``
+``openssl dsaparam -genkey 2048 | openssl dsa -out dsa.key -aes128``    (without creating DSA parameter file)
 
 **To remove a pass phrase**
 
