@@ -126,10 +126,10 @@ sudo mkdir /etc/ssl/newcerts
 ``openssl req -new -x509 -extensions v3_ca -keyout ca.key -out ca.cert -days 3650``
 
 **Now install the root certificate and key:**
-
-``sudo mv ca.key /etc/ssl/private/``
-
-``sudo mv ca.cert /etc/ssl/certs/``
+```
+sudo mv ca.key /etc/ssl/private/
+sudo mv ca.cert /etc/ssl/certs/
+```
 
 ### Creating Certificate signed by CA
 
