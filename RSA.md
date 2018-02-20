@@ -150,7 +150,7 @@ Method 1:
 openssl rsautl -decrypt -inkey private.pem -in cipher.bin -out decrypted.txt
 ```
 
-``
+```
 Methdo 2:
 openssl pkeyutl -decrypt -inkey private.pem -in cipher.bin -out received-ID.txt
 ```
