@@ -6,10 +6,13 @@
 
 ``2. sudo tar -xvzf openssl-1.0.1g.tar.gz``
 
-3. cd openssl-1.0.1g
-4. sudo ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl
-5. sudo make
-6. sudo make install
+``3. cd openssl-1.0.1g``
+
+``4. sudo ./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl``
+
+``5. sudo make``
+
+``6. sudo make install``
 
 ### Procedure 2:
 
