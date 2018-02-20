@@ -2,11 +2,11 @@
 
 **Private key (n, d)** (without password protection)
 
-``openssl genrsa -out private.pem 4096``
+```Method 1: openssl genrsa -out private.pem 4096```
 
-``openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048``
+```Method 2: openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048```
 
-``openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem``
+```Method 3: openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem```
 
 **Private key (n, d)** (with password protection)
 
