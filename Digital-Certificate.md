@@ -1,5 +1,6 @@
+## Digital Certificate
+
 ### Generating Certificate Signing Request (CSR)
---------------------------------------------
 
 Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
 
@@ -64,7 +65,6 @@ Step 1.2: Certificate Signing Request (CSR)
 ``openssl req -text -noout -verify -in server.csr``
 
 ### Creating Self-Signed Certificate (User)
----------------------------------------
 
 **Create self-signed certificate (with private key and csr)**
 
@@ -89,7 +89,6 @@ Step 1.2: Certificate Signing Request (CSR)
 ``openssl req -noout -modulus -in server.csr | openssl md5``
 
 ### Installing the Certificate (User)
----------------------------------
 
 **/etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key**
 
@@ -97,7 +96,6 @@ Step 1.2: Certificate Signing Request (CSR)
 ``sudo cp server.key /etc/ssl/private``
 
 ### Certificate Authority (CA)
---------------------------
 
 **First, create the directories to hold the CA certificate and related files**
 
@@ -126,10 +124,7 @@ Step 1.2: Certificate Signing Request (CSR)
 ``sudo mv ca.key /etc/ssl/private/``
 ``sudo mv ca.cert /etc/ssl/certs/``
 
-*********************************************************************************************************************************
-
 ### Creating Certificate signed by CA
----------------------------------
 
 **Certificate signed by CA (server.csr - CSR of a user)**
 
@@ -148,7 +143,6 @@ Step 1.2: Certificate Signing Request (CSR)
 ``openssl verify -verbose -CAFile ca.cert server.cert``
 
 ### Certificate of Different format
--------------------------------
 
 **Convert a certificate format PEM to DER**
 
