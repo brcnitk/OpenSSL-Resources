@@ -80,9 +80,10 @@ openssl rsautl
 
 ``cat public.pem``
 
-```
-Encryption and Decryption:
 
+**Encryption and Decryption using RSA**
+
+```
 A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Public key, E - Encryption
 
 B: PT = D(PRb, CT), D - Decryption 
@@ -90,11 +91,11 @@ B: PT = D(PRb, CT), D - Decryption
 
 **Encryption** (uses public key of receiver only) 
 
-``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin`` (-pubin - if public.pem contains only public key)
+``openssl rsautl -encrypt -inkey public.pem -pubin -in input.txt -out cipher.bin`` (with public key of receiver)
 
-``openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt -out cipher.bin`` (-pubin - if public.pem contains only public key)
+``openssl pkeyutl -encrypt -inkey public.pem -pubin -in message.txt -out cipher.bin`` (with public key of receiver) -
 
-``openssl rsautl -encrypt -inkey private.pem -in input.txt -out cipehr.bin``
+``openssl rsautl -encrypt -inkey private.pem -in input.txt -out cipehr.bin`` (with public key of private key of receiver)
 
 **Decryption** (uses private key of receiver only)
 
