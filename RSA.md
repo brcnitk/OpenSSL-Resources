@@ -1,20 +1,35 @@
-# ------------------- RSA -------------------
+##  ------------------- RSA -------------------
 
-# To generate private key
-openssl genrsa
-
-# Manage RSA private key, includes generating a public key
+**Commands to generate private key**
+```
+openssl genrsa``
 openssl rsa
-
-# Encrypt and decrypt files with RSA keys
 openssl rsautl
+```
 
-# To generate private key (n, d) using RSA
-1. openssl genrsa -out private.pem 4096
-2. openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048
-3. openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem
+**Private key (n, d) without password protection**
 
-# Format of RSA private key (RFC 3447)
+``openssl genrsa -out private.pem 4096``
+
+``openssl genpkey -algorithm RSA -out private.pem -pkeyopt rsa_keygen_bits:2048``
+
+``openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem``
+
+**Private key (n, d) with password protection**
+
+``openssl genrsa -des3 -out private.pem 2048``
+
+``openssl genrsa -aes128 -out fd.key 2048``
+
+``openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096``
+
+**Encrypt private key**
+
+``openssl rsa -des3 -in private.pem -out enc-private.pem``
+
+**Format of RSA private key (RFC 3447)**
+
+```
   RSAPrivateKey ::= SEQUENCE {
       version           Version,
       modulus           INTEGER,  -- n
@@ -27,21 +42,19 @@ openssl rsautl
       coefficient       INTEGER,  -- (inverse of q) mod p
       otherPrimeInfos   OtherPrimeInfos OPTIONAL
   }
+  ```
 
-# To dispaly the above details of a private key in RSA
-1. openssl rsa -text -in private.pem
-2. openssl rsa -text -in private.pem -noout
-3. openssl pkey -in private.pem -text
+**View private key with all parameters** 
 
-# To display only the private key
-cat private.pem
+``openssl rsa -text -in private.pem``
 
-# To generate encrypted private key using RSA
-1. openssl genrsa -des3 -out private.pem 2048
-2. openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096
+``openssl rsa -text -in private.pem -noout``
 
-# To encrypt private key
-1. openssl rsa -des3 -in private.pem -out enc-private.pem
+``openssl pkey -in private.pem -text``
+
+**View only private key**
+
+``cat private.pem``
 
 # To generate public key (n, e) from private key in RSA
 1. openssl rsa -in private.pem -pubout -out public.pem
