@@ -1,5 +1,13 @@
 # OpenSSL-Resources
 
+OpenSSL is a general purpose cryptography library that provides an open source implementation of the Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols.
+
+The library includes tools for generating RSA private keys and Certificate Signing Requests (CSRs), checksums, managing certificates and performing encryption/decryption. OpenSSL is written in C, but wrappers are available for a wide variety of computer languages.
+
+As of this writing, it’s estimated that 66% of all Web servers use OpenSSL. The OpenSSL toolkit is licensed under an Apache-style license.
+
+
+
 OpenSSL is an open source project that consists of a cryptographic library and an SSL/TLS
 toolkit. From the project’s web site:
 
