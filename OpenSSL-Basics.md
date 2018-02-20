@@ -24,6 +24,6 @@
 
 **Performance**
 
-As you’re probably aware, computation speed is a significant limiting factor for any cryptographic operation. OpenSSL comes with a built-in benchmarking tool that you can use to get an idea about a system’s capabilities and limits. You can invoke the benchmark using the speed command.
+As you’re probably aware, computation speed is a significant limiting factor for any cryptographic operation. OpenSSL comes with a built-in benchmarking tool that you can use to get an idea about a system’s capabilities and limits. You can invoke the benchmark using the ``speed`` command.
 
 ``openssl speed``
