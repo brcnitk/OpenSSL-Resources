@@ -17,11 +17,11 @@ openssl rsautl
 
 **Private key (n, d) with password protection**
 
-``openssl genrsa -des3 -out private.pem 2048``
+``openssl genrsa -des3 -out private.pem 2048`` (Interactive)
 
-``openssl genrsa -aes128 -out fd.key 2048``
+``openssl genrsa -aes128 -out private.key 2048`` (Interactive)
 
-``openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096``
+``openssl genrsa -aes128 -passout pass:<phrase> -out private.pem 4096`` (Non-interactive)
 
 **Encrypt private key**
 
@@ -48,15 +48,15 @@ openssl rsautl
 
 ``openssl rsa -text -in private.pem``
 
-``openssl rsa -text -in private.pem -noout``
+``openssl pkey -text -in private.pem``
 
-``openssl pkey -in private.pem -text``
+``openssl rsa -text -in private.pem -noout`` (without private key)
 
 **View only private key**
 
 ``cat private.pem``
 
-**To generate public key (n, e) from private key**
+**Public key (n, e) from private key**
 
 ``openssl rsa -in private.pem -pubout -out public.pem``
 
@@ -66,21 +66,23 @@ openssl rsautl
 
 ``openssl pkey -in private.pem -out public.pem -pubout``
 
-**To seperate public key form encrypted private key in RSA**
+**Public key form encrypted private key**
 
 ``openssl rsa -in private.pem -passin pass:<phrase> -pubout -out public.pem``
 
-**To display (n, e) of a public key**
+**View public key (n, e) with all parameters**
 
 ``openssl rsa -text -in public.pem -pubin``
 
-``openssl pkey -in public.pem -pubin -text``
+``openssl pkey -text -in public.pem -pubin``
 
-**To check private and public key files**
+**View only public key**
 
-``less public.pem``
+``cat public.pem``
 
-``less private.pem``
+> A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Public key, E - Encryption
+
+> B: PT = D(PRb, CT), D - Decryption 
 
 **Encryption in RSA (uses public key of receiver only) ("-pubin" if public.pem contains only public key)**
 
