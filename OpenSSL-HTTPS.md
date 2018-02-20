@@ -15,3 +15,7 @@
 **Accessing s_server through s_client**
 
 ``openssl s_client -connect localhost:44330``
+
+## References:
+
+1. [Website](https://blog.jorisvisscher.com/2015/07/22/create-a-simple-https-server-with-openssl-s_server/)
