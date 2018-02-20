@@ -1,7 +1,5 @@
 # OpenSSL-Resources
 
-[Contribution guidelines for this project](Program-8/p8.cpp)
-
 OpenSSL is an open source project that consists of a cryptographic library and an SSL/TLS
 toolkit. From the project’s web site:
 
