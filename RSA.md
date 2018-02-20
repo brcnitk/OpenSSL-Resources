@@ -1,6 +1,6 @@
 ##  Rivest–Shamir–Adleman (RSA)
 
-**Private key (n, d) without password protection**
+**Private key (n, d)** (without password protection)
 
 ``openssl genrsa -out private.pem 4096``
 
@@ -8,7 +8,7 @@
 
 ``openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem``
 
-**Private key (n, d) with password protection**
+**Private key (n, d)** (with password protection)
 
 ``openssl genrsa -des3 -out private.pem 2048`` (Interactive)
 
@@ -20,7 +20,7 @@
 
 ``openssl rsa -des3 -in private.pem -out enc-private.pem``
 
-**Format of RSA private key (RFC 3447)**
+**Format of RSA private key** (RFC 3447)
 
 ```
   RSAPrivateKey ::= SEQUENCE {
