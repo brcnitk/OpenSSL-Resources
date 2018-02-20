@@ -19,7 +19,9 @@ Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
 **Decrypting passord protected private key**
 
 ``openssl rsa -in server.key -out server.key.insecure``
+
 ``mv server.key server.key.secure``
+
 ``mv server.key.insecure server.key``
 
 **Verify private key (Display the private key)**
@@ -85,7 +87,9 @@ Step 1.2: Certificate Signing Request (CSR)
 **Verify a private key (domain.key) matches a certificate (domain.crt) and CSR (domain.csr)**
 
 ``openssl rsa -noout -modulus -in server.key | openssl md5``
+
 ``openssl x509 -noout -modulus -in server.cert | openssl md5``
+
 ``openssl req -noout -modulus -in server.csr | openssl md5``
 
 ### Installing the Certificate (User)
@@ -93,6 +97,7 @@ Step 1.2: Certificate Signing Request (CSR)
 **/etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key**
 
 ``sudo cp server.crt /etc/ssl/certs``
+
 ``sudo cp server.key /etc/ssl/private``
 
 ### Certificate Authority (CA)
@@ -100,20 +105,26 @@ Step 1.2: Certificate Signing Request (CSR)
 **First, create the directories to hold the CA certificate and related files**
 
 ``sudo mkdir /etc/ssl/CA``
+
 ``sudo mkdir /etc/ssl/newcerts``
 
 **The CA needs a few additional files to operate, one to keep track of the last serial number used by the CA, each certificate must have a unique serial number, and another file to record which certificates have been issued**
 
 ``sudo sh -c "echo '01' > /etc/ssl/CA/serial"``
+
 ``sudo touch /etc/ssl/CA/index.txt``
 
 **The third file is a CA configuration file. Though not strictly necessary, it is very convenient when issuing multiple certificates. Edit /etc/ssl/openssl.cnf, and in the [ CA_default ] change:**
 
-dir             = /etc/ssl              # Where everything is kept
-database        = $dir/CA/index.txt     # database index file.
-certificate     = $dir/certs/ca.cert    # The CA certificate
-serial          = $dir/CA/serial        # The current serial number
-private_key     = $dir/private/ca.key   # The private key
+* dir             = /etc/ssl              `#` Where everything is kept
+
+* database        = $dir/CA/index.txt     `#` database index file.
+
+* certificate     = $dir/certs/ca.cert    `#` The CA certificate
+
+* serial          = $dir/CA/serial        `#` The current serial number
+
+* private_key     = $dir/private/ca.key   `#` The private key
 
 **Next, create the self-signed root certificate:**
 
@@ -122,6 +133,7 @@ private_key     = $dir/private/ca.key   # The private key
 **Now install the root certificate and key:**
 
 ``sudo mv ca.key /etc/ssl/private/``
+
 ``sudo mv ca.cert /etc/ssl/certs/``
 
 ### Creating Certificate signed by CA
