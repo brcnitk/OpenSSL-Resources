@@ -99,7 +99,7 @@ Step 1.2: Certificate Signing Request (CSR)
   <img src="Figures/Fig-14.14a.png" width="300" height="400" />
 </p>  
 
-**Verify a private key** (domain.key) **matches a certificate** (domain.crt) **and CSR** (domain.csr)**
+**Verify a private key** (domain.key) **matches a certificate** (domain.crt) **and CSR** (domain.csr)
 ```
 openssl rsa -noout -modulus -in server.key | openssl md5
 openssl x509 -noout -modulus -in server.cert | openssl md5
