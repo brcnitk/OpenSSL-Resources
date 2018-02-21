@@ -49,7 +49,7 @@ Step 1.2: Certificate Signing Request (CSR)
 
 ``openssl req -newkey rsa:2048 -nodes -keyout server.key -out server.csr``
 
-**Create CSR (with existing private key and certificate). For renewing an existing certificate but you or your CA do not have the original CSR**
+**Create CSR (with existing private key and certificate)** (For renewing an existing certificate but you or your CA do not have the original CSR)
 
 ``openssl x509 -in server.cert -signkey server.key -x509toreq -out server.csr``
 
@@ -67,15 +67,15 @@ Step 1.2: Certificate Signing Request (CSR)
 
 ### Creating Self-Signed Certificate (User)
 
-**Create self-signed certificate (with private key and csr)**
+**Create self-signed certificate** (with private key and csr)
 
 ``openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.cert``
 
-**Create self-signed certificate. (without private key and CSR)**
+**Create self-signed certificate** (without private key and CSR)
 
 ``openssl req -newkey rsa:2048 -nodes -keyout server.key -x509 -days 365 -out domain.cert``
 
-**Create self-signed certificate (with private key and without CSR)**
+**Create self-signed certificate** (with private key and without CSR)
 
 ``openssl req -key server.key -new -x509 -days 365 -out server.cert``
 
@@ -83,7 +83,11 @@ Step 1.2: Certificate Signing Request (CSR)
 
 ``openssl x509 -text -noout -in server.cert``
 
-**Verify a private key (domain.key) matches a certificate (domain.crt) and CSR (domain.csr)**
+<p align=center>
+  <img src="Figure/X.5092.png" />
+</p>  
+
+**Verify a private key** (domain.key) **matches a certificate** (domain.crt) **and CSR** (domain.csr)**
 ```
 openssl rsa -noout -modulus -in server.key | openssl md5
 openssl x509 -noout -modulus -in server.cert | openssl md5
@@ -92,7 +96,7 @@ openssl req -noout -modulus -in server.csr | openssl md5
 
 ### Installing the Certificate (User)
 
-**/etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key**
+/etc/ssl/certs - location of certificate and /etc/ssl/private - location of private key
 ```
 sudo cp server.crt /etc/ssl/certs
 sudo cp server.key /etc/ssl/private
