@@ -18,6 +18,18 @@
 
 ### Advanced Encryption Standard (AES)
 
+**Encryption and Decryption**
+
+<p align=center>
+<img src="Figures/AES-3.png" width="400" height="150" />
+</p>
+
+**Variants of AES**
+
+<p align=center>
+<img src="Figures/AES-2.png" width="400" height="150" />
+</p>
+
 **Encryption** (Interactive)
 
 ``openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin``
