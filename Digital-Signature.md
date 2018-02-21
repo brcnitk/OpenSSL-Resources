@@ -10,6 +10,20 @@
   <img src="Figures/Digital-Signature.png" width="400" height="400" />
 </p>  
 
+**Two approaches to Digital Signature**
+
+1. RSA Approach
+
+<p align=center>
+  <img src="Figures/Fig-13.3a.png" width="400" height="100" />
+</p>
+
+2. DSS Approach
+
+<p align=center>
+  <img src="Figures/Fig-13.3b.png" width="400" height="100" />
+</p>
+
 **Generating digest of a file**
 
 ```
