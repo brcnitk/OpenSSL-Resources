@@ -16,26 +16,20 @@
 
 ``openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
 
-#Alice and Bob derive their shared secret:
+**Coparing secrete key**
 
-openssl pkeyutl -derive -inkey alice_priv_key.pem -peerkey bob_pub_key.pem -out alice_shared_secret.bin
-openssl pkeyutl -derive -inkey bob_priv_key.pem -peerkey alice_pub_key.pem -out bob_shared_secret.bin
+``$ cmp alice_shared_secret.bin bob_shared_secret.bin``
 
-# To check if keys are same
-$ cmp alice_shared_secret.bin bob_shared_secret.bin
+**View Secrete key**
 
-#Display shared keys
+```
 $ base64 alice_shared_secret.bin
-
 $ base64 bob_shared_secret.bin
+```
+**Encryption** (Using symmetric cipher)
 
+``$ openssl enc -aes256 -base64 -k $(base64 alice_shared_secret.bin) -e -in plain.txt -out cipher.txt``
 
-# Plaintext
-$ echo 'Message for Bob' > plain.txt
+**Decryption** (Using symmetric cipher)
 
-#Encrypt Decrypt using symmetric cipher
-$ openssl enc -aes256 -base64 -k $(base64 alice_shared_secret.bin) -e -in plain.txt -out cipher.txt
-$ openssl enc -aes256 -base64 -k $(base64 bob_shared_secret.bin) -d -in cipher.txt -out plain_again.txt
-
-#Display Decrypted text
-$ cat plain_again.txt
+``$ openssl enc -aes256 -base64 -k $(base64 bob_shared_secret.bin) -d -in cipher.txt -out plain_again.txt``
