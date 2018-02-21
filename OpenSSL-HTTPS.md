@@ -16,7 +16,7 @@
 
 ``openssl s_client -connect localhost:44330``                                         (^c to kill client)
 
-**Useful Commands**
+## Useful Commands
 
 **To list all openssl process with port number and PID**
 
