@@ -1,4 +1,4 @@
-## Digital Certificate
+## Public-Key Certificate (Digital Certificate)
 
 **Excahnge of Public-Key Certificate**
 
