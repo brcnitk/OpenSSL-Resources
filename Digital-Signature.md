@@ -6,6 +6,11 @@
 
 **Generating digest of a file**
 
+```
+Syntax:
+openssl dgst -<hash_algorithm> -out <digest> <input_file>
+```
+
 ``openssl dgst -sha256 -out sign.sha256 input.txt``
 
 **Encrypting digest as signature using private key**
@@ -13,6 +18,11 @@
 ```
 Method 1:
 openssl dgst -sha256 -sign private.pem -out sign.sha256 input.txt
+```
+
+```
+Synatx:
+openssl rsautl -sign -inkey <key> -in <digest> -out <signature> 
 ```
 
 ```
@@ -26,6 +36,12 @@ openssl rsautl -sign -inkey private.pem -keyform PEM -in sign.sha256 > signature
 Method 1: 
 openssl dgst -sha256 -verify public.pem -signature sign.sha256 input.txt
 ```
+
+```
+Syntax:
+openssl rsautl -verify -in <signature> -out <digest> -inkey <key> -pubin
+```
+
 ```
 Method 2: 
 openssl rsautl -verify -inkey public.pem -keyform PEM -in signature input.txt
