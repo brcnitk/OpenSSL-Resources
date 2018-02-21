@@ -32,6 +32,14 @@
 <img src="Figures/DES-3.png" width="350" height="150" />
 </p>
 
+**Encryption**
+
+``openssl des3 -in file.txt -out file.des3``
+
+**Decryption**
+
+``openssl des3 -d -in file.des3 -out file.txt``
+
 ### Advanced Encryption Standard (AES)
 
 **Encryption and Decryption**
