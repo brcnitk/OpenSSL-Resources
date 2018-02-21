@@ -84,7 +84,7 @@ Step 1.2: Certificate Signing Request (CSR)
 ``openssl x509 -text -noout -in server.cert``
 
 <p align=center>
-  <img src="Figure/X.5092.png" />
+  <img src="Figure/X.509-2.png" width="400" height="200" />
 </p>  
 
 **Verify a private key** (domain.key) **matches a certificate** (domain.crt) **and CSR** (domain.csr)**
