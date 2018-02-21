@@ -1,16 +1,17 @@
 ##  Rivest–Shamir–Adleman (RSA)
 
 ### Procedure:
+
 ```
 Each user generates a public/private key pair by:
-  
+
 1. Select two large primes at random: p, q 
-2. computing their system modulus n = p.q
-3. note ø(n) = (p-1)(q-1) 
-4. selecting at random the encryption key e, where 1 < e < ø(n), gcd(e,ø(n)) = 1 
-5. solve following equation to find decryption key d, e.d = 1 mod ø(n) and 0 ≤ d ≤ n 
-6. publish their public encryption key: PU = {e,n} 
-7. keep secret private decryption key: PR = {d,n}
+2. Calculate modulus n = p * q
+3. Calculate ø(n) = (p - 1)(q - 1) 
+4. Selecting at random the encryption key e, gcd(e,ø(n)) = 1, where 1 < e < ø(n), 
+5. Calculate decryption key d, e * d = 1 mod ø(n), where 0 ≤ d ≤ n 
+6. Public Key: PU = {e, n} 
+7. Private Key: PR = {d, n}
 ```
 
 **Private key (n, d)** (without password protection)
