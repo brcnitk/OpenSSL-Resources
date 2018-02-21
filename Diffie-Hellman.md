@@ -2,39 +2,39 @@
 
 **Global public parameters** (Common for both users)
 
-``$openssl genpkey -genparam -algorithm DH -out dhp.pem``
+``openssl genpkey -genparam -algorithm DH -out dhp.pem``
 
 **View global parameters**
 
 ```
-Method 1: $cat dhp.pem
-Method 2: $openssl pkeyparam -in dhp.pem -text
+Method 1: cat dhp.pem
+Method 2: openssl pkeyparam -in dhp.pem -text
 ```
 
 **Private key**
 
-``$openssl genpkey -paramfile dhp.pem -out PRa.pem``
+``openssl genpkey -paramfile dhp.pem -out PRa.pem``
 
 **View private key**
 
-``$openssl pkey -in PRa.pem -text -noout``
+``openssl pkey -in PRa.pem -text -noout``
 
 **Public key**
 
-``$openssl pkey -in PRa.pem -pubout -out PUa.pem``
+``openssl pkey -in PRa.pem -pubout -out PUa.pem``
 
 **View public key**
 
-``$openssl pkey -pubin -in PUa.pem -text``
+``openssl pkey -pubin -in PUa.pem -text``
 
 **Secrete key**
 
-``$openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
+``openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
 
 **View secrete key**
 
-``$xxd SKa.bin``
+``xxd SKa.bin``
 
 **Compare secrete key**
 
-`$cmp SKa.bin SKb.bin``
+``cmp SKa.bin SKb.bin``
