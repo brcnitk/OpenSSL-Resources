@@ -34,3 +34,7 @@
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt -pass pass:hello``
 
+## Reference
+
+[openssl enc](https://www.openssl.org/docs/manmaster/man1/enc.html)
+
