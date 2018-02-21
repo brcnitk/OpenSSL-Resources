@@ -4,6 +4,10 @@
 > - A digital signature is formed by taking the hash of the message (MAC) and encrypting the message with the creator’s private key. 
 > - A digital signature guarantees the source and integrity of the message.
 
+<p align=center>
+  <img src="Figures/Fig1.png" width="200" height="200" />
+</p>  
+
 **Generating digest of a file**
 
 ```
