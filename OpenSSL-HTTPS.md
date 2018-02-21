@@ -6,7 +6,7 @@
 
 **Starting OpenSSL s_server**
 
-``openssl s_server -key key.pem -cert cert.pem -accept 44330 -www``
+``openssl s_server -key key.pem -cert cert.pem -accept 44330 -www``                   (^c to kill server)
 
 **Accessing s_server through browser**
 
@@ -14,7 +14,17 @@
 
 **Accessing s_server through s_client**
 
-``openssl s_client -connect localhost:44330``
+``openssl s_client -connect localhost:44330``                                         (^c to kill client)
+
+**Useful Commands**
+
+**To list all openssl process with port number and PID**
+
+``sudo netstat -nlp | grep openssl``
+
+**To kill process**
+
+``sudo kill -9 PID``
 
 ## References:
 
