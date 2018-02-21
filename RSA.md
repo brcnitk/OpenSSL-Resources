@@ -148,7 +148,7 @@ B: PT = D(PRb, CT), D - Decryption
 **Example**
 
 <p align=center>
-  <img src="Figures/RSA2.png" width="400" height="200" />
+  <img src="Figures/RSA2.png" width="400" height="150" />
 </p> 
 
 **Encryption** (uses public key of receiver only) 
