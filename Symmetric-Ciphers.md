@@ -62,6 +62,8 @@
 
 ``openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin -pass pass:hello``
 
+``sudo openssl enc -aes-256-cbc -salt -in sai.txt -out file.txt.enc -k PASS -a`` (Base64 format output)
+
 **Decryption** (interactive)
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt``
@@ -69,6 +71,14 @@
 **Decryption** (non-interactive)
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt -pass pass:hello``
+
+``openssl enc -aes-256-cbc -d -in file.txt.enc -k PASS -a``
+
+**View cipertext**
+
+``cat file.txt.enc`` (for Base64 format)
+
+``xxd file.txt.enc`` (for other format)
 
 ## Reference
 
