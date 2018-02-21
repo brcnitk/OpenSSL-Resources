@@ -139,6 +139,9 @@ A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Publ
 
 B: PT = D(PRb, CT), D - Decryption 
 ```
+<p align=center>
+  <img src="Figures/RSA1.png" width="400" height="200" />
+</p>         
 
 **Encryption** (uses public key of receiver only) 
 
