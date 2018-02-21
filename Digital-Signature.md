@@ -47,7 +47,7 @@ Method 2:
 openssl rsautl -verify -inkey public.pem -keyform PEM -in signature input.txt
 ```
 
-**Converting signature to Base64 format**
+**Converting signature to Base64 format** (text version)
 
 ``openssl base64 -in sign.sha256 -out signature``
 
