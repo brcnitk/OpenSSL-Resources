@@ -1,8 +1,8 @@
 ## Digital Signature
 
-> A digital signature is an authentication mechanism that enables the creator of a message to attach a code that acts as a signature. 
-> A digital signature is formed by taking the hash of the message (MAC) and encrypting the message with the creator’s private key. 
-> A digital signature guarantees the source and integrity of the message.
+> - A digital signature is an authentication mechanism that enables the creator of a message to attach a code that acts as a signature. 
+> - A digital signature is formed by taking the hash of the message (MAC) and encrypting the message with the creator’s private key. 
+> - A digital signature guarantees the source and integrity of the message.
 
 **Generating digest of a file**
 
