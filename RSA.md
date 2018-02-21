@@ -134,6 +134,8 @@ openssl pkey -text -in public.pem -pubin
 
 **Encryption and Decryption using RSA**
 
+**Procedure**
+
 ```
 A --> B: CT = E(PUb, PT), PT - Plain Text, CT - Cipher Text, PUb - User B's Public key, E - Encryption
 
@@ -141,7 +143,13 @@ B: PT = D(PRb, CT), D - Decryption
 ```
 <p align=center>
   <img src="Figures/RSA1.png" width="400" height="200" />
-</p>         
+</p>    
+
+**Example**
+
+<p align=center>
+  <img src="Figures/RSA2.png" width="400" height="200" />
+</p> 
 
 **Encryption** (uses public key of receiver only) 
 
