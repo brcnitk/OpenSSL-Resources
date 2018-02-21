@@ -46,3 +46,7 @@ openssl dgst -dss1 -sign privkey.pem foo.txt.sha1 > foo.txt.sig
 ### Verifying 
 
 ``openssl dgst -dss1 -verify pubkey.pem -signature foo.txt.sig foo.txt.sha1``
+
+### Reference
+
+[openssl dsaparam](https://www.openssl.org/docs/manmaster/man1/enc.html)
