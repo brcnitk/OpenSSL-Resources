@@ -1,5 +1,12 @@
 ## Elliptic Curve Cryptography
 
+```
+- Elliptic Curve Cryptography (ECC) used in key exchange, encryption, and digital signature.
+```
+<p align=center>
+  <img src="Figures/Fig1.png" width="200" height="200" />
+</p>                                                     
+
 **Generate private key**
 
 ``openssl ecparam -name secp256k1 -genkey -noout -out PRa.pem``
