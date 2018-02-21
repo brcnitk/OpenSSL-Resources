@@ -1,5 +1,11 @@
 ## Digital Signature
 
+> - Digital Signatures: Another important application, which is similar to the message authentication
+application, is the digital signature. The operation of the digital signature is similar
+to that of the MAC. In the case of the digital signature, the hash value of a message
+is encrypted with a user’s private key. Anyone who knows the user’s public key can
+verify the integrity of the message that is associated with the digital signature.
+
 **To generate the digest of a file**
 
 ``openssl dgst -sha256 -out sign.sha256 input.txt``
