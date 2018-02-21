@@ -3,7 +3,7 @@
 **Encryption and Decryption**
 
 <p align=center>
-<img src="Figures/ASC-4.png" width="400" height="400" />
+<img src="Figures/ASC-4.png" width="450" height="400" />
 </p>
 
 **Private key (n, d)** (without password protection)
