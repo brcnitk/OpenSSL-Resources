@@ -1,18 +1,10 @@
 ##  Rivest–Shamir–Adleman (RSA)
 
-### Procedure:
+**Encryption and Decryption**
 
-```
-Each user generates a public/private key pair by:
-
-1. Select two large primes at random: p, q 
-2. Calculate modulus n = p * q
-3. Calculate ø(n) = (p - 1)(q - 1) 
-4. Selecting at random the encryption key e, gcd(e,ø(n)) = 1, where 1 < e < ø(n), 
-5. Calculate decryption key d, e * d = 1 mod ø(n), where 0 ≤ d ≤ n 
-6. Public Key: PU = {e, n} 
-7. Private Key: PR = {d, n}
-```
+<p align=center>
+<img src="Figures/ASC-4.png" width="400" height="400" />
+</p>
 
 **Private key (n, d)** (without password protection)
 
