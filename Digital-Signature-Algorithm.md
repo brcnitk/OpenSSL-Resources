@@ -1,5 +1,17 @@
 ## Digital Signature Algorithm (DSA)
 
+**Procedure**
+
+<p align=center>
+  <img src="Figures/Fig-13.5.png" width="500" height="300" />
+</p>
+
+**Algorithm**
+
+<p align=center>
+  <img src="Figures/Fig-13.4.png" width="500" height="400" />
+</p>
+
 **Generating DSA parameter file**
 
 ``openssl dsaparam -out dsaparam.pem 2048``
