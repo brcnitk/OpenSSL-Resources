@@ -1,13 +1,12 @@
 ## Diffie-Hellman Key Exchange
 
-```
-- A simple public-key algorithm for secrete key exchange.
-- It enable two users to securely exchange a key that can then be used for subsequent encryption of messages.
-- The purpose of the algorithm is to The algorithm itself is limited to the exchange of secret values.
-- It is secure only if the authenticity of the two participants can be established.
-```
+> - A simple public-key algorithm for secrete key exchange.
+> - It enable two users to securely exchange a key that can then be used for subsequent encryption of messages.
+> - The purpose of the algorithm is to The algorithm itself is limited to the exchange of secret values.
+> - It is secure only if the authenticity of the two participants can be established.
+
 <p align=center>
-  <img src="Figures/Fig1.png" width="200" height="200" />
+  <img src="Figures/DH-1.png" width="450" height="400" />
 </p>  
 
 **Global public parameters** (Common for both users)
