@@ -5,7 +5,7 @@
 > - The purpose of the algorithm is to The algorithm itself is limited to the exchange of secret values.
 > - It is secure only if the authenticity of the two participants can be established.
 
-**ALgorithm**
+**Algorithm**
 
 <p align=center>
   <img src="Figures/DH-1.png" width="450" height="400" />
