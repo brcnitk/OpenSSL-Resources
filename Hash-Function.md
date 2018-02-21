@@ -1,4 +1,4 @@
-## Digest
+## Hash Function
 
 > - A hash function maps a variable-length message into a fixed-length hash value, or message digest.
 > - The kind of hash function needed for security applications is referred to as a cryptographic hash function.
