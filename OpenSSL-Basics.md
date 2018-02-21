@@ -28,6 +28,14 @@ As you’re probably aware, computation speed is a significant limiting factor f
 
 ``openssl speed``
 
+**Manual Pages**
+
+``man openssl``
+
+``man enc``
+
+``man dgst``
+
 ## References:
 
 1. "OpenSSL Coockbook", by Ivan Ristić
