@@ -12,9 +12,19 @@
 
 ``https://localhost:44330``
 
-**Accessing s_server through s_client**
+**Accessing s_server through s_client** (View of certificate)
 
 ``openssl s_client -connect localhost:44330``                                         (^c to kill client)
+
+**Accessing s_server through s_client** (Chain of certificates)
+
+``openssl s_client -connect localhost:44330``                                         (^c to kill client)
+
+**Chain of Certificates**
+
+<p align=center>
+  <img src="Figures/Fig-14.15.png" width="300" height="450" />
+</p>  
 
 ## Useful Commands
 
