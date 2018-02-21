@@ -14,20 +14,36 @@
 
 ### Data Encryption Standard (DES)
 
+**Encryption and Decryption**
 
+<p align=center>
+<img src="Figures/DES-1.png" width="250" height="400" />
+</p>
+
+**2-DES**
+
+<p align=center>
+<img src="Figures/DES-2.png" width="300" height="150" />
+</p>
+
+**3-DES**
+
+<p align=center>
+<img src="Figures/DES-3.png" width="350" height="150" />
+</p>
 
 ### Advanced Encryption Standard (AES)
 
 **Encryption and Decryption**
 
 <p align=center>
-<img src="Figures/AES-3.png" width="400" height="150" />
+<img src="Figures/AES-3.png" width="300" height="400" />
 </p>
 
 **Variants of AES**
 
 <p align=center>
-<img src="Figures/AES-2.png" width="400" height="150" />
+<img src="Figures/AES-2.png" width="300" height="90" />
 </p>
 
 **Encryption** (Interactive)
