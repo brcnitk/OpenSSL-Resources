@@ -20,7 +20,7 @@
 
 **List of cipher suites**
 
-``openssl ciphers -v``
+``openssl enc -ciphers``
 
 **Performance**
 
