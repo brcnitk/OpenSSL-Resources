@@ -1,5 +1,17 @@
 ## Digital Certificate
 
+**Excahnge of Public-Key Certificate**
+
+<p align=center>
+  <img src="Figures/Fig-14.12.png" width="450" height="250" />
+</p>
+
+**Public-Key Certificate Use**
+
+<p align=center>
+  <img src="Figures/Fig-14.13.png" width="450" height="250" />
+</p>
+
 ### Generating Certificate Signing Request (CSR)
 
 Step 1.1: Generate the keys for the Certificate Signing Request (CSR)
