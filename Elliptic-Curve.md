@@ -1,10 +1,11 @@
 ## Elliptic Curve Cryptography
 
-```
-- Elliptic Curve Cryptography (ECC) used in key exchange, encryption, and digital signature.
-```
+> - Elliptic Curve Cryptography (ECC) used in key exchange, encryption, and digital signature.
+
+**Algorithm**
+
 <p align=center>
-  <img src="Figures/Fig1.png" width="200" height="200" />
+  <img src="Figures/Fig-10.7.png" width="350" height="400" />
 </p>                                                     
 
 **Generate private key**
