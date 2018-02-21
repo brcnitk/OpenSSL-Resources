@@ -52,3 +52,5 @@ openssl dgst -dss1 -sign privkey.pem foo.txt.sha1 > foo.txt.sig
 [openssl dsaparam](https://www.openssl.org/docs/manmaster/man1/enc.html)
 
 [openssl gendsa](https://www.openssl.org/docs/manmaster/man1/gendsa.html)
+
+[openssl dsa](https://www.openssl.org/docs/manmaster/man1/dsa.html)
