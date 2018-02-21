@@ -1,10 +1,6 @@
 ## Symmetric Ciphers (Encryption and Decryption)
 
-**A Simplified Model of Symmetric Encryption**
-
-<p align="center">
-  <img src="Figure/Fig1.png" width="400" height="200 />
-</p>                                           
+**A Simplified Model of Symmetric Encryption**                                    
 
 ### Base64
 
