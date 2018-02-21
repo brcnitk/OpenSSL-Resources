@@ -18,18 +18,16 @@
 
 **Coparing secrete key**
 
-``$ cmp alice_shared_secret.bin bob_shared_secret.bin``
+``$ cmp SKa.bin SKb.bin``
 
 **View Secrete key**
 
-```
-$ base64 alice_shared_secret.bin
-$ base64 bob_shared_secret.bin
-```
+``$ base64 SKa.bin``
+
 **Encryption** (Using symmetric cipher)
 
-``$ openssl enc -aes256 -base64 -k $(base64 alice_shared_secret.bin) -e -in plain.txt -out cipher.txt``
+``$ openssl enc -aes256 -base64 -k $(base64 SKa.bin) -e -in plain.txt -out cipher.txt``
 
 **Decryption** (Using symmetric cipher)
 
-``$ openssl enc -aes256 -base64 -k $(base64 bob_shared_secret.bin) -d -in cipher.txt -out plain_again.txt``
+``$ openssl enc -aes256 -base64 -k $(base64 SKb.bin) -d -in cipher.txt -out plain_again.txt``
