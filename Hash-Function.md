@@ -8,6 +8,10 @@
 > - More commonly, message authentication is achieved using a message authentication code (MAC), also known as a keyed hash function.
 > - In recent years, the most widely used hash function has been the Secure Hash Algorithm (SHA).
 
+<p align=center>
+  <img src="Figures/Fig-11.1" width="250" height="250" />
+</p>
+
 ## Message Digest (MD)
 
 **MD5 digest**
