@@ -42,14 +42,10 @@ Method 2: openssl pkeyparam -in dhp.pem -text
 
 ``openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
 
-**Verification**
-
-``cmp SKa.bin SKb.bin``           (if SKa.bin and SKb.bin are locally computed)
-
 **View secrete key**
 
 ``xxd SKa.bin``
 
-**Compare secrete key**
+**Verification**
 
-``cmp SKa.bin SKb.bin``
+``cmp SKa.bin SKb.bin``           (if SKa.bin and SKb.bin are locally computed)
