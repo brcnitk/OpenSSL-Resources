@@ -33,7 +33,7 @@ and develop the OpenSSL toolkit and its related documentation
 
 > The code initially began its life in 1995 under the name SSLeay, 1 when it was developed by Eric A. Young and Tim J. Hudson. The OpenSSL project was born in the last days of 1998, when Eric and Tim stopped their work on SSLeay to work on a commercial SSL/TLS toolkit called BSAFE SSL-C at RSA Australia.
 
-## Contents:
+## Topics:
 
 [OpenSSL Installation](OpenSSL-Installation.md)
 
