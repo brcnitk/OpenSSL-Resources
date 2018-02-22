@@ -32,6 +32,8 @@ Edit, ~/.bashrc
 
 update PATH with location of openssl
 
+``export PATH=$PATH:/usr/local/``
+
 ``source ~/.bashrc``
 
 
