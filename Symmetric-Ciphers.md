@@ -10,7 +10,21 @@
 
 **Encryption**
 
-``openssl enc -base64 -in number.txt``
+``openssl enc -base64 -in number.txt -out cipher.txt``
+
+**View cipher text**
+
+``cat cipher.txt``
+
+``xxd cipher.txt``
+
+**Decryption**
+
+``openssl enc -base64 -d -in cipher.txt -out number1.txt``
+
+**Verification**
+
+``cmp number.txt number1.txt``
 
 ### Data Encryption Standard (DES)
 
@@ -36,9 +50,19 @@
 
 ``openssl des3 -in file.txt -out file.des3``
 
+**View cipher text**
+
+``cat cipher.txt``
+
+``xxd cipher.txt``
+
 **Decryption**
 
 ``openssl des3 -d -in file.des3 -out file.txt``
+
+**Verification**
+
+``cmp number.txt number1.txt``
 
 ### Advanced Encryption Standard (AES)
 
