@@ -1,8 +1,14 @@
 ## Cryptography
 
+> Cryptography: The schemes used for encryption constitute the area of study known as cryptography.
+
+> Computer Security: The protection afforded to an  automated information system in order to attain the applicable objectives of preserving the integrity, availability, and confidentiality of information system resources (includes hardware, software, firmware, information/data, and telecommunications).
+
 ## Network Security
 
 **A Model for Network Security**
+
+> Network and Internet Security: Deals with measures to deter, prevent, detect, and correct security violations that involve the transmission of information.
 
 <p align=center>
 <img src="Figures/Fig1.png" width="600" height="300" />
