@@ -1,6 +1,10 @@
 ## OpenSSL Installation
+```
+Procedure 1: Manual installation
+Procedure 2: Default installation
+```
 
-## Procedure 1:
+## Procedure 1
 
 **Installing newest OpenSSL**
 
@@ -37,7 +41,7 @@ update PATH with location of openssl
 ``source ~/.bashrc``
 
 
-**Procedure 2:**
+## Procedure 2
 
 ``1. sudo apt-get install openssl``
 
