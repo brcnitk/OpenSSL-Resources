@@ -56,23 +56,11 @@ sha1sum input.txt
 
 > mandatory-to-implement MAC for IP security, and is used in other Internet protocols, such as SSL.
 
-``openssl dgst -<md5/sha1> -hmac -passin private.key -out hmac.txt input.txt`` 
+``openssl dgst -<md5/sha1> -hmac 'key' -out hmac.txt input.txt`` 
 
-``echo -n 'value' | openssl dgst -sha1 -hmac 'key'``
+``openssl <md5/sha1> -mac HMAC 'key' -out hmac.txt input.txt``
 
-``echo -n 'value' | openssl dgst -md5 -hmac 'key'``
-
-``echo -n 'value' | openssl sha1 -hmac 'key'``
-
-``echo -n 'value' | openssl md5 -hmac 'key'``
-
-``echo -n 'value' | openssl dgst -sha1 -mac HMAC -macopt key:key``
-
-``echo -n 'value' | openssl dgst -sha1 -mac HMAC -macopt hexkey:6b6579``
-
-``echo -n 'value' | openssl dgst -md5 -mac HMAC -macopt key:key``
-
-``echo -n 'value' | openssl dgst -md5 -mac HMAC -macopt hexkey:6B6579``
+``openssl dgst <sha1/md5> -mac HMAC -macopt key:key -out hmac.txt input.txt``
 
 ## References
 
