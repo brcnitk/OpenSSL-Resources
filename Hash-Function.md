@@ -19,6 +19,7 @@
 ```
 Method 1:
 openssl dgst -md5 input.txt
+openssl dgst -md5 -out hash.txt input.txt
 ```
 ```
 Method 2: 
@@ -54,6 +55,8 @@ sha1sum input.txt
 ## Hash Message Authentication Code (HMAC) (RFC 2104)
 
 > mandatory-to-implement MAC for IP security, and is used in other Internet protocols, such as SSL.
+
+``openssl dgst -<md5/sha1> -hmac -passin private.key -out hmac.txt input.txt`` 
 
 ``echo -n 'value' | openssl dgst -sha1 -hmac 'key'``
 
