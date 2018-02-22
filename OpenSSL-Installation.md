@@ -1,6 +1,8 @@
 ## OpenSSL Installation
 
-**Procedure 1:**
+## Procedure 1:
+
+**Installing newest OpenSSL**
 
 ``1. sudo wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz``
 
@@ -18,7 +20,7 @@
 
 **Checking**
 
-``openssl version``
+``openssl version``               (display new version number)
 
 If above result displays older version:
 
