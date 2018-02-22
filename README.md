@@ -61,4 +61,6 @@ Key Distribution
 
 [Create a simple HTTPS server with OenSSL s_server](OpenSSL-HTTPS.md)
 
+[OpenSSL Errors](OpenSSL-Errors.md)
+
 [Useful Websites](OpenSSL-Websites.md)
