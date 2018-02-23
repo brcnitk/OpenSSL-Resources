@@ -52,17 +52,17 @@
 
 **View cipher text**
 
-``cat cipher.txt``
+``cat file.des3``
 
-``xxd cipher.txt``
+``xxd file.des3``
 
 **Decryption**
 
-``openssl des3 -d -in file.des3 -out file.txt``
+``openssl des3 -d -in file.des3 -out filed.txt``
 
 **Verification**
 
-``cmp number.txt number1.txt``
+``cmp file.txt filed.txt``
 
 ### Advanced Encryption Standard (AES)
 
@@ -86,7 +86,7 @@
 
 ``openssl enc -aes-256-cbc -in plain.txt -out encrypted.bin -pass pass:hello``
 
-``sudo openssl enc -aes-256-cbc -salt -in sai.txt -out file.txt.enc -k PASS -a`` (Base64 format output)
+``sudo openssl enc -aes-256-cbc -salt -in plain.txt -out encrypted.bin -k PASS -a`` (Base64 format output)
 
 **Decryption** (interactive)
 
@@ -96,13 +96,13 @@
 
 ``openssl enc -d -aes-256-cbc -in encrypted.bin -out decrypt.txt -pass pass:hello``
 
-``openssl enc -aes-256-cbc -d -in file.txt.enc -k PASS -a``
+``openssl enc -aes-256-cbc -d -in encrypted.bin -k PASS -a``
 
 **View cipertext**
 
-``cat file.txt.enc`` (for Base64 format)
+``cat encrypted.bin`` (for Base64 format)
 
-``xxd file.txt.enc`` (for other format)
+``xxd encrypted.bin`` (for other format)
 
 ## Reference
 
