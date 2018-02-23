@@ -16,19 +16,19 @@
 
 ``openssl ec -in private.pem -pubout -out PUa.pem``
 
-#There are no tools for encrypting and decrypting! ECC doesn’t define these directly. 
-#Instead, ECC users use Diffie-Hellman (DH) key exchange to compute a shared secret, then communicate using that shared secret. 
-#This combination of ECC and DH is called ECDH.
 
-**Generating scerete key**
+> There are no tools for encrypting and decrypting! ECC doesn’t define these directly. Instead, ECC users use Diffie-Hellman (DH) key exchange to compute a shared secret, then communicate using that shared secret. This combination of ECC and DH is called ECDH.
+
+
+**Generating sceret key**
 
 ``openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
 
-**Coparing secrete key**
+**Comparing secret key**
 
 ``$ cmp SKa.bin SKb.bin``
 
-**View Secrete key**
+**View Secret key**
 
 ``$ base64 SKa.bin``
 
