@@ -6,7 +6,7 @@
 <img src="Figures/ASC-4.png" width="450" height="400" />
 </p>
 
-**Private key (n, d)** (without password protection)
+**Generating Private key (n, d)** (without password protection)
 
 ```
 Method 1: 
@@ -23,7 +23,7 @@ Method 3:
 openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -pkeyopt rsa_keygen_pubexp:3 -out private.pem
 ```
 
-**Private key (n, d)** (with password protection)
+**Generating Private key (n, d)** (with password protection)
 
 ```
 Method 1: 
@@ -81,7 +81,7 @@ openssl rsa -text -in private.pem -noout                                    (wit
 
 ``cat private.pem``
 
-**Public key (n, e) from private key**
+**Generate Public key (n, e) from private key**
 
 ```
 Method 1:
@@ -103,7 +103,7 @@ Method 4:
 openssl pkey -in private.pem -out public.pem -pubout
 ```
 
-**Public key form encrypted private key**
+**Generate Public key form encrypted private key**
 
 ``openssl rsa -in private.pem -passin pass:<phrase> -pubout -out public.pem``
 
