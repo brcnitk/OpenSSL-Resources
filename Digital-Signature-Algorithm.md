@@ -46,7 +46,7 @@
 
 ### Signing
 
-1. Ceateing some text file
+1. Creating some text file
 echo "foobar" > foo.txt
 
 2. Creating hash
