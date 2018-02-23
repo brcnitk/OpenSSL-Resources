@@ -6,7 +6,7 @@ Procedure 2: Default installation
 
 ## Procedure 1
 
-**Installing newest OpenSSL**
+**Installing latest OpenSSL**
 
 ``1. sudo wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz``
 
