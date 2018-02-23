@@ -32,7 +32,7 @@
 
 ``openssl dsa -in key.pem -out keyout.pem``
 
-**To diplay private key**
+**To display private key**
 
 ``openssl dsa -in privkey.pem -text -noout``
 
