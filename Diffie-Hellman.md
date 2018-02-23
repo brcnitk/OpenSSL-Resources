@@ -22,7 +22,7 @@ Method 1: cat dhp.pem
 Method 2: openssl pkeyparam -in dhp.pem -text
 ```
 
-**Private key**
+**Generate Private key**
 
 ``openssl genpkey -paramfile dhp.pem -out PRa.pem``
 
@@ -30,7 +30,7 @@ Method 2: openssl pkeyparam -in dhp.pem -text
 
 ``openssl pkey -in PRa.pem -text -noout``
 
-**Public key**
+**Generate Public key**
 
 ``openssl pkey -in PRa.pem -pubout -out PUa.pem``
 
@@ -38,11 +38,11 @@ Method 2: openssl pkeyparam -in dhp.pem -text
 
 ``openssl pkey -pubin -in PUa.pem -text``
 
-**Secrete key**
+**Generate Secret key**
 
 ``openssl pkeyutl -derive -inkey PRa.pem -peerkey PUb.pem -out SKa.bin``
 
-**View secrete key**
+**View secret key**
 
 ``xxd SKa.bin``
 
