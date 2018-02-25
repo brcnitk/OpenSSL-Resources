@@ -16,13 +16,13 @@
 
 ``openssl s_client -connect localhost:44330``                                         (^c to kill client)
 
-``openssl s_client -connect www.google.com:44330``                                    (^c to kill client)
+``openssl s_client -connect www.google.com:443``                                    (^c to kill client)
 
 **Accessing s_server through s_client** (Chain of certificates)
 
 ``openssl s_client -connect localhost:44330 -showcerts``                              (^c to kill client)
 
-``openssl s_client -connect www.google.com:44330 -showcerts``                         (^c to kill client)
+``openssl s_client -connect www.google.com:443 -showcerts``                         (^c to kill client)
 
 > In case of verify error:num=19:self signed certificate in certificate chain,
 > - openssl s_client -connect www.feistyduck.com:443 -CAfile /etc/ssl/certs/ca-certificates.crt

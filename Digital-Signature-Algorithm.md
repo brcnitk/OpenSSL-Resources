@@ -32,7 +32,7 @@
 
 ``openssl dsa -in key.pem -out keyout.pem``
 
-**To diplay private key**
+**To display private key**
 
 ``openssl dsa -in privkey.pem -text -noout``
 
@@ -46,7 +46,7 @@
 
 ### Signing
 
-1. Ceateing some text file
+1. Creating some text file
 echo "foobar" > foo.txt
 
 2. Creating hash

@@ -1,6 +1,12 @@
 ## OpenSSL Installation
+```
+Procedure 1: Manual installation
+Procedure 2: Default installation
+```
 
-### Procedure 1:
+## Procedure 1
+
+**Installing latest OpenSSL**
 
 ``1. sudo wget http://www.openssl.org/source/openssl-1.0.1g.tar.gz``
 
@@ -16,7 +22,26 @@
 
 ``7. sudo make install``
 
-### Procedure 2:
+**Checking**
+
+``openssl version``               (display new version number)
+
+If above result displays older version:
+
+``sudo find / -name openssl``     (Locating openssl)
+
+Edit, ~/.bashrc
+
+``sudo geany ~/.bashrc``
+
+update PATH with location of openssl
+
+``export PATH=$PATH:/usr/local/``
+
+``source ~/.bashrc``
+
+
+## Procedure 2
 
 ``1. sudo apt-get install openssl``
 

@@ -38,4 +38,4 @@ As you’re probably aware, computation speed is a significant limiting factor f
 
 ## References:
 
-1. "OpenSSL Coockbook", by Ivan Ristić
+1. "OpenSSL Cookbook", by Ivan Ristić

@@ -50,7 +50,7 @@ Method 2:
 openssl rsautl -sign -inkey private.pem -keyform PEM -in sign.sha256 > signature (sign.sha256 is the digest of input.txt)
 ```
 
-**Verifing the signature**
+**Verifying the signature**
 
 ```
 Method 1: 
