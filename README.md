@@ -14,6 +14,7 @@
 <img src="Figures/Fig1.png" width="600" height="300" />
 </p>
 
+![equation](Figures/CodeCogsEqn.gif)
 ## OpenSSL
 
 - OpenSSL is an open source project that consists of a cryptographic library and an Secure Sockets Layer (SSL) and Transport Layer Security (TLS) protocols toolkit
