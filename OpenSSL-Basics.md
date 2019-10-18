@@ -10,7 +10,7 @@
 
 **OpenSSL Available Commands**
 
-``openssl -help``
+``openssl help``
 
 > "Standard commands" list available utilities. Linux "man" command display the manual page of utility. (eg. man ciphers)
 
