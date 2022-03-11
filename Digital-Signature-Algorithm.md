@@ -53,7 +53,7 @@ echo "foobar" > foo.txt
 openssl sha1 < foo.txt > foo.txt.sha1
 
 3. Signing text file
-openssl dgst -dss1 -sign privkey.pem foo.txt.sha1 > foo.txt.sig
+openssl dgst -sha1 -sign privkey.pem foo.txt.sha1 > foo.txt.sig
 
 ### Verifying 
 
