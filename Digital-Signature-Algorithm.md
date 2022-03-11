@@ -67,4 +67,4 @@ openssl dgst -sha1 -sign privkey.pem foo.txt.sha1 > foo.txt.sig
 
 [openssl dsa](https://www.openssl.org/docs/manmaster/man1/dsa.html)
 
-[openssl How to use OpenSSL](https://opensource.com/article/19/6/cryptography-basics-openssl-part-2)
+[How to use OpenSSL](https://opensource.com/article/19/6/cryptography-basics-openssl-part-2)
